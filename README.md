@@ -21,6 +21,18 @@ Withdraw
 
 View total balances
 
+Manage Users:
+
+List Users
+
+Add New User
+
+Delete User (Very Soon)
+
+Update User (Very Soon)
+
+Find User (Very Soon)
+
 🛠️ Technologies Used
 C++17
 
