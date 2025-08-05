@@ -1,4 +1,4 @@
-
+﻿
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -70,14 +70,23 @@ struct strUser
 	string UsrName;
 	short password;
 	int permission;
+	bool isMarked = false;
 };
 
 
 std::vector<strUser> loadUsers(std::string filename);
-void PressAnyKey();
 void Login();
 void ManageUsers(int);
 bool checkPermission(int, int);
+void PrintUserInfoCard(strUser user);
+string convertUserRecordToLine(strUser user, string del);
+bool isUserExist(string userName);
+void AddNewUser(int permission, bool isNewUser, string UserName);
+strUser ReturnUserByUsername(string username);
+
+
+
+
 
 
 void MainMenueMssg(int& choice)
@@ -203,13 +212,7 @@ bool isAccountNumberExist(string accountNumber, vector<strClient> myvec)
 	return false;
 }
 
-void PressAnyKey() //Delete it
-{
-	char choice;
 
-	cout << "press any key to go back to main menue...";
-	cin >> choice;
-}
 strClient ClientInfo(vector<strClient> myvec, bool isNewClient = true) //adding new client
 {
 
@@ -788,6 +791,148 @@ void showLoginScreen()
 
 //##//##//##//##
 
+void UpdateUser(int UserPermission)
+{
+	system("cls");
+	char choice;
+	cout << "_____________________________________" << endl;
+	cout << "Update User Screen" << endl;
+	cout << "_____________________________________" << endl;
+	string username;
+	cout << "Enter User Name: ";
+	cin >> username;
+
+	if (username == "Admin")
+	{
+		cout << "You Can't Change The Previlages Of The Admin!" << endl;
+		cout << "Press Any Key To Return To Manage Users Screen...";
+		system("pause>0");
+		return;
+	}
+
+
+	strUser user = ReturnUserByUsername(username);
+	PrintUserInfoCard(user);
+
+	cout << "Are you sure you want to update this user? Y/N: ";
+
+	cin >> choice;
+	if (toupper(choice) == 'Y')
+	{
+		AddNewUser(UserPermission, false, username);
+	}
+}
+
+
+
+
+
+void FindUser()
+{
+	system("Cls");
+
+	cout << "_____________________________\n";
+	cout << "\tFind User Screen\n";
+	cout << "_____________________________\n";
+
+	string username;
+	cout << "Enter UserName: ";
+	cin >> username;
+	vector<strUser> myvec=loadUsers("users.txt");
+	for (strUser n : myvec)
+	{
+		if (n.UsrName == username)
+		{
+			PrintUserInfoCard(n);
+		}
+	}
+	cout << endl << endl;
+	cout << "Press Any Key To Go Back To Manage Users Screen";
+	system("pause>0");
+	return;
+}
+
+
+void MarkUserForDeletion(vector<strUser>& myvec,string username)
+{
+	for (strUser& n : myvec)
+	{
+		if (n.UsrName == username)
+		{
+			n.isMarked = true;
+			return;
+		}
+	}
+}
+
+void DeleteUser(int userPermission)
+{
+	system("cls");
+	string username;
+	char choice='\0';
+	cout << "Please Enter User Name: ";
+	cin >> username;
+
+	vector<strUser> myvec = loadUsers("users.txt");
+	MarkUserForDeletion(myvec,username);
+	fstream File;
+	string line;
+
+
+	if (!isUserExist(username))
+	{
+		cout << "User with ["<<username<<"] is not found ! Process Terminated.\n";
+		cout << "Press Any Key to go to Manage Users Screen Menu";
+		system("pause>0");
+		return;
+	}
+
+
+	if (username == "Admin")
+	{
+		cout << "You Can't Delete The User Admin!\n";
+		cout << "Press Any Key to go to Manage Users Screen Menu";
+		system("pause>0");
+		return;
+	}
+
+	for (strUser& n : myvec)
+	{
+		if (n.isMarked == true)
+		{
+			PrintUserInfoCard(n);
+			cout << "\n\nAre You Sure You Want To Delete This User? Y/N ";
+			cin >> choice;
+			break;
+		}
+	}
+
+	if (toupper(choice) == 'Y' )
+	{
+		File.open("users.txt", ios::out);
+		if (File.is_open())
+		{
+			for (strUser& n : myvec)
+			{
+				if (n.isMarked == true)
+				{
+					continue;
+				}
+				line = convertUserRecordToLine(n, "#//#");
+				File << line << endl;
+			}
+			cout << "User Deleted Successfully!" << endl;
+		}
+		
+	}
+
+	myvec = loadUsers("users.txt");
+	cout << "Press Any Key to go to Manage Users Screen Menu";
+	system("pause>0");
+	return;
+}
+
+
 string convertUserRecordToLine(strUser user, string del)
 {
 	return user.UsrName + del + to_string (user.password) + del + to_string (user.permission);
@@ -859,7 +1004,7 @@ int ReadUserPermission()
 }
 
 
-bool SearchUserName(string userName)
+bool isUserExist(string userName)
 {
 	vector<strUser> myvec = loadUsers("users.txt");
 	for (strUser& n : myvec)
@@ -873,12 +1018,10 @@ bool SearchUserName(string userName)
 }
 
 
-void AddNewUser(int permission)
+void AddNewUser(int permission,bool isNewUser=true,string UserName="")
 {
-	system("cls");
-	cout << "----------------------------------------------\n";
-	cout << "\t\t Add New User Screen\n";
-	cout << "----------------------------------------------\n";
+	
+	
 	strUser user;
 	string line;
 	fstream file;
@@ -887,20 +1030,31 @@ void AddNewUser(int permission)
 
 	do
 	{
-		cout << "Enter User Name: ";
-		getline(cin >> ws, user.UsrName);
-
-		while (SearchUserName(user.UsrName) == true)
+		if (isNewUser)
 		{
-			cout << "User With [" << user.UsrName << "] already exists, Enter Another User Name? ";
+			system("cls");
+			cout << "----------------------------------------------\n";
+			cout << "\t\t Add New User Screen\n";
+			cout << "----------------------------------------------\n";
+			cout << "Enter User Name: ";
 			getline(cin >> ws, user.UsrName);
+			while (isUserExist(user.UsrName) == true)
+			{
+				cout << "User With [" << user.UsrName << "] already exists, Enter Another User Name? ";
+				getline(cin >> ws, user.UsrName);
 
+			}
+		}
+
+		else
+		{
+			user.UsrName = UserName;
 		}
 		cout << "Enter Password: ";
-		cin >> ws >> user.password;
+		cin >> user.password;
 
 		cout << "Do you want to give full access y/n? ";
-		cin >> ws >> UserChoice;
+		cin >> UserChoice;
 
 		if (UserChoice == toupper('y'))
 		{
@@ -928,9 +1082,10 @@ void AddNewUser(int permission)
 		cin >> ws >> UserChoice;
 	} while (toupper(UserChoice) == 'Y');
 
-	cout << "Press Any Key To Go Back To Manage Users Screen ";
+	cout << "Press Any Key to go to Manage Users Screen Menu";
 	system("pause>0");
-	ManageUsers(permission);
+	return;
+
 }
 void ListUsers()
 {
@@ -988,14 +1143,32 @@ void ManageUsers(int UserPermission)
 			case enUsersChoice::eListUsers:
 			{
 				ListUsers();
+				break;
 			}
 			case enUsersChoice::eAddNewUser:
 			{
 				AddNewUser(UserPermission);
+				break;
+			}
+			case enUsersChoice::eDeleteUser:
+			{
+				DeleteUser(UserPermission);
+				break;
+			}
+			case enUsersChoice::eUpdateUser:
+			{
+				UpdateUser(UserPermission);
+				break;
+			}
+			case enUsersChoice::eFindUser:
+			{
+				FindUser();
+				break;
 			}
 			case enUsersChoice::eMainMenue:
 			{
 				MainMenu(UserPermission);
+				break;
 			}
 		}
 	}
@@ -1043,7 +1216,7 @@ bool FindUserByUserNameAndPassword(string username, short password)
 	vector<strUser> myvec = loadUsers("users.txt"); //load vector
 	for (strUser& n : myvec)
 	{
-		if (n.UsrName == username && n.password == password)
+		if ( n.UsrName == username && n.password == password)
 		{
 			return true;
 		}
@@ -1051,7 +1224,19 @@ bool FindUserByUserNameAndPassword(string username, short password)
 	return false;
 
 }
-strUser ReturnUser(string username, short password)
+void PrintUserInfoCard(strUser user ) 
+{
+	cout << "The Following Are The User Details: \n";
+	cout << "_________________________\n";
+	cout << "UserName: " << user.UsrName << endl;
+	cout << "Password: " << user.password << endl;
+	cout << "Permission: " << user.permission << endl;
+	cout << "_________________________\n";
+
+}
+
+
+strUser ReturnUserByUserNameAndPassword(string username, short password)
 {
 	vector<strUser> myvec = loadUsers("users.txt"); //load vector
 	for (strUser& n : myvec)
@@ -1061,8 +1246,30 @@ strUser ReturnUser(string username, short password)
 			return n;
 		}
 	}
-	return { "",-1,-404 };
+	return { "",-122,-404 };
 }
+
+
+
+strUser ReturnUserByUsername(string username)
+{
+	vector<strUser> myvec = loadUsers("users.txt"); //load vector
+
+	if (isUserExist(username))
+	{
+		for (strUser& n : myvec)
+		{
+			if (n.UsrName == username)
+			{
+				return n;
+			}
+		}
+	}
+
+	return { "",-122,-404 };
+}
+
+
 
 void Login()
 {
@@ -1079,7 +1286,7 @@ void Login()
 
 		if (FindUserByUserNameAndPassword(username, password))//result is true
 		{
-			strUser user = ReturnUser(username, password);
+			strUser user = ReturnUserByUserNameAndPassword(username, password);
 			MainMenu(user.permission);
 		}
 		else
