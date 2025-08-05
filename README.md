@@ -3,6 +3,7 @@ This is a console-based banking system implemented in C++. It simulates basic op
 All client data is stored in a local file named clients.txt, using a custom delimiter #//#.
 
 ✨ Operations
+
 Show all clients
 
 Add new client
