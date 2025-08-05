@@ -24,6 +24,11 @@ View total balances
 
 Manage Users:
 
+Each Banking System user has special Previliages or Rights Where they can or can not access some of the features or the program operations that is pre determined by user using the bitwise logic
+
+✨ Operations
+
+
 List Users
 
 Add New User
