@@ -33,9 +33,9 @@ List Users
 
 Add New User
 
-Delete User 
+Delete User (Admin User Cant be deleted)
 
-Update User 
+Update User (Admin User Cant be updated)
 
 Find User 
 
