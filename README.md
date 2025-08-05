@@ -28,11 +28,11 @@ List Users
 
 Add New User
 
-Delete User (Very Soon)
+Delete User 
 
-Update User (Very Soon)
+Update User 
 
-Find User (Very Soon)
+Find User 
 
 🛠️ Technologies Used
 C++17
