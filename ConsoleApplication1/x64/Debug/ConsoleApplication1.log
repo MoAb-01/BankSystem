@@ -1,0 +1,83 @@
+﻿  ConsoleApplication1.cpp
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsString.h(40,29): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsString.h(45,33): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsString.h(57,34): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsString.h(194,33): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsString.h(325,34): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsString.h(373,26): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsBankClient.h(94,126): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsBankClient.h(356,19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsBankClient.h(357,21): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsClientAddNewClientScreen.h(36,58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsClientAddNewClientScreen.h(36,58): warning C4244:         with
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsClientAddNewClientScreen.h(36,58): warning C4244:         [
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsClientAddNewClientScreen.h(36,58): warning C4244:             T=double
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsClientAddNewClientScreen.h(36,58): warning C4244:         ]
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUpdateClientScreen.h(35,58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUpdateClientScreen.h(35,58): warning C4244:         with
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUpdateClientScreen.h(35,58): warning C4244:         [
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUpdateClientScreen.h(35,58): warning C4244:             T=double
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUpdateClientScreen.h(35,58): warning C4244:         ]
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUpdateClientScreen.h(81,55): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsDepositScreen.h(34,22): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsWithdrawScreen.h(33,24): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsTotalBalancesScreen.h(18,80): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsTransferScreen.h(76,27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsTransferScreen.h(86,25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsTransferScreen.h(87,22): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsTransferScreen.h(91,40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsRateUpdateScreen.h(39,44): warning C4244: '=': conversion from 'T' to 'float', possible loss of data
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsRateUpdateScreen.h(39,44): warning C4244:         with
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsRateUpdateScreen.h(39,44): warning C4244:         [
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsRateUpdateScreen.h(39,44): warning C4244:             T=double
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsRateUpdateScreen.h(39,44): warning C4244:         ]
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsCurrencyCalculatorScreen.h(52,29): warning C4244: 'argument': conversion from 'double' to '__int64', possible loss of data
+  (compiling source file 'ConsoleApplication1.cpp')
+  
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsLogin.h(54,1): warning C4715: 'clsLogin::Login': not all control paths return a value
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsBankClient.h(189,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsBankClient.h(337,1): warning C4715: 'clsBankClient::Deposit': not all control paths return a value
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUtil.h(252,1): warning C4715: 'clsUtil::NumberToText': not all control paths return a value
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsUser.h(191,1): warning C4715: 'clsUser::save': not all control paths return a value
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\clsCurrency.h(30,1): warning C4715: 'clsCurrency::_convertLineToCurrencyObject': not all control paths return a value
+  ConsoleApplication1.vcxproj -> F:\c++ testing\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

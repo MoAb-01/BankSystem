@@ -1,0 +1,11 @@
+﻿  ConsoleApplication1.cpp
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(79,25): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(252,19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(260,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(259,7): warning C4101: 'confirm': unreferenced local variable
+F:\c++ testing\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.cpp(339,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 383 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ConsoleApplication1.vcxproj -> F:\c++ testing\ConsoleApplication1\x64\Release\ConsoleApplication1.exe
